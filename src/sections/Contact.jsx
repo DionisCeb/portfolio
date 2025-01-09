@@ -68,7 +68,7 @@ const Contact = () => {
         <section className="c-cpace my-20" id="contact">
 
             <div className="relative min-h-screen flex items-center justify-center flex-col">
-                <img src="/assets/terminal.png" alt="terminal background" className="absolute inset-0 min-h-screen hidden sm:block"/>
+                <img src="/assets/img/contact/screen.png" alt="terminal background" className="absolute inset-0 min-h-screen hidden sm:block"/>
                 <div className="contact-container">
                     <h3 className="head-text">Say Hello</h3>
                     <p className="text-lg text-white-600 mt-3">

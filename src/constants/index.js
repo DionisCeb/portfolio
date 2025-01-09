@@ -87,6 +87,11 @@ export const myProjects = [
                 name: 'JS',
                 path: '/assets/js.png',
             },
+            {
+                id: 4,
+                name: 'TypeScript',
+                path: '/assets/typescript.png',
+            },
         ],
     },
    /* {

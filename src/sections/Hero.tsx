@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
+import {Center, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import HackerRoom from "../components/HackerRoom";
 import CanvasLoader from "../components/CanvasLoader";
 /*import Target from "../components/Target.jsx";
@@ -11,6 +11,8 @@ import Button from "../components/Button.jsx";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
+import Desktop from "../components/Desktop.jsx";
+import { Leva, useControls } from "leva"; // Import Leva
 
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -18,6 +20,15 @@ const Hero = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
+
+  // Leva controls for position, scale, and rotation
+ /* const { positionX, positionY, positionZ, scale, rotationY } = useControls({
+    positionX: { value: sizes.deskPosition[0], min: -20, max: 20, step: 0.5 },
+    positionY: { value: sizes.deskPosition[1], min: -20, max: 20, step: 0.5 },
+    positionZ: { value: sizes.deskPosition[2], min: -20, max: 20, step: 0.5 },
+    scale: { value: sizes.deskScale * 20, min: 1, max: 50, step: 1 },
+    rotationY: { value: -Math.PI, min: -Math.PI, max: Math.PI, step: 0.1 }
+  });*/
 
   return (
     <section className="min-h-screen w-full flex flex-col relative" id="home">
@@ -30,8 +41,8 @@ const Hero = () => {
         </p>
       </div>
       <div className="w-full h-full absolute inset-0">
-        {/* <Leva /> */}
-        <Canvas className="w-full h-full">
+         {/*<Leva />*/}
+        {/*<Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HeroCamera isMobile={isMobile}>
@@ -41,12 +52,36 @@ const Hero = () => {
                 scale={sizes.deskScale}
               />
             </HeroCamera>
-            {/*  <group>
-              <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Cube position={sizes.cubePositions} />
-              <Rings position={sizes.ringPosition} />
-            </group> */}
+
+            <ambientLight intensity={1} />
+            <directionalLight position={[10, 10, 10]} intensity={0.5} />
+          </Suspense>
+        </Canvas>*/}
+        {/*<Canvas className="w-full">
+          <ambientLight intensity={Math.PI}/>
+          <directionalLight position={[10, 10, 5]}/>
+          <Center>
+            <Suspense fallback={<CanvasLoader/>}>
+              <group scale={0.5} position={[0, -2, 0]} rotation={[0, -0.1, 0]}>
+                <Desktop/>
+              </group>
+            </Suspense>
+          </Center>
+          <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false}/>
+        </Canvas>*/}
+
+        {/*Canvas Desktop*/}
+        <Canvas className="w-full h-full">
+          <Suspense fallback={<CanvasLoader />}>
+            <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+            <HeroCamera isMobile={isMobile}>
+              <Desktop
+                  position={[0.8, -3.5, -0.5]} // Custom position
+                  rotation={[0, -1.7, 0]}       // Custom rotation
+                  scale={1}                     // Custom scale
+              />
+            </HeroCamera>
+
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>

@@ -94,6 +94,7 @@ const Projects = () => {
                         </Center>
                         <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
                     </Canvas>
+
                 </div>
             </div>
         </section>
