@@ -62,7 +62,7 @@ export const myProjects = [
         desc: 'Autoventa is a platform designed for auto dealerships, providing tools to manage vehicle inventories, sales, and customer interactions. It includes a reservation management system for scheduling test drives and appointments, along with an admin panel for managing car listings, pricing, and customer data. The platform streamlines operations, enhancing efficiency and customer experience for the dealership.',
         subdesc:
             'Built on Laravel for the web and React Native for mobile. It offers tools for managing inventories, sales, reservations, and appointments, with an admin panel for easy control over listings and pricing, streamlining operations and improving the customer experience.',
-        href: 'https://dionisceb.github.io/cardeluxe/',
+        href: 'https://autoventa.dioniscode.com/',
         texture: '/textures/project/autoventa.mp4',
         logo: '/assets/autoventa-logo.png',
         logoStyle: {
