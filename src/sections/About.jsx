@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Globe from "react-globe.gl";
 import Button from "../components/Button.jsx";
 
@@ -11,6 +11,26 @@ const About = () => {
             setHasCopied(false);
         }, 2000)
     }
+
+    //Use Effect to add the effect on scroll
+    useEffect(() => {
+        const elements = document.querySelectorAll(".col-span-1, .xl\\:col-span-2, .xl\\:col-span-1");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${index * 200 + 2000}ms`; // Delay increases by 200ms for each element
+                    entry.target.classList.add("slide-in");
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.3 });
+
+        elements.forEach(element => observer.observe(element));
+
+        return () => observer.disconnect(); // Clean up observer on unmount
+    }, []);
+
     return (
         <section className="c-space my-20" id="about">
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">

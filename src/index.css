@@ -49,11 +49,11 @@ body {
   }
 
   .btn-ping {
-    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFCA3D] opacity-75;
   }
 
   .btn-ping_dot {
-    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+    @apply relative inline-flex rounded-full h-3 w-3 bg-[#FFCA3D];
   }
 
   /* hero section */
@@ -195,4 +195,32 @@ body {
   100% {
     transform: rotate(0deg);
   }
+}
+
+
+.blinking-cursor::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* Initial state before animation */
+.slide-block, .col-span-1, .xl\:col-span-2, .xl\:col-span-1 {
+  opacity: 0;
+  transform: translateX(-50px); /* Slide from the left */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When the element is in view */
+.slide-in {
+  opacity: 1;
+  transform: translateX(0);
 }

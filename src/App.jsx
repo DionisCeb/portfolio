@@ -7,6 +7,7 @@ import Footer from "./sections/Footer.jsx";
 import Desktop from "./components/Desktop.jsx";
 import DesktopSection from "./sections/DesktopSection.jsx";
 
+
 function App() {
 
   return (

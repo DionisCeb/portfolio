@@ -2,75 +2,74 @@ import { Canvas } from "@react-three/fiber";
 import {Center, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import HackerRoom from "../components/HackerRoom";
 import CanvasLoader from "../components/CanvasLoader";
-/*import Target from "../components/Target.jsx";
-import ReactLogo from "../components/ReactLogo.jsx";
-import Cube from "../components/Cube.jsx";
-import Rings from "../components/Rings.jsx";*/
 import HeroCamera from "../components/HeroCamera.jsx";
 import Button from "../components/Button.jsx";
-import { Suspense } from "react";
+import {Suspense, useState, useEffect} from "react";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
 import Desktop from "../components/Desktop.jsx";
-import { Leva, useControls } from "leva"; // Import Leva
+import {fade} from "maath/misc";
+/*import { Leva, useControls } from "leva";*/ // Import Leva
 
 const Hero = () => {
+  const roles = ['Web Developer', 'Frontend Developer', 'Backend Developer', 'UI/UX Designer', 'Software Engineer'];
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
+  const [currentRole, setCurrentRole] = useState('');
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIndex, setCharIndex] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
-  // Leva controls for position, scale, and rotation
- /* const { positionX, positionY, positionZ, scale, rotationY } = useControls({
-    positionX: { value: sizes.deskPosition[0], min: -20, max: 20, step: 0.5 },
-    positionY: { value: sizes.deskPosition[1], min: -20, max: 20, step: 0.5 },
-    positionZ: { value: sizes.deskPosition[2], min: -20, max: 20, step: 0.5 },
-    scale: { value: sizes.deskScale * 20, min: 1, max: 50, step: 1 },
-    rotationY: { value: -Math.PI, min: -Math.PI, max: Math.PI, step: 0.1 }
-  });*/
+  //Use effect to update the current role
+  useEffect(() => {
+    const currentText = roles[index];
+
+    const typingInterval = setTimeout(() => {
+      if (isDeleting) {
+        // Delete characters
+        setCurrentRole(currentText.substring(0, charIndex - 1));
+        setCharIndex((prev) => prev - 1);
+        setTypingSpeed(100);
+      } else {
+        // Add characters
+        setCurrentRole(currentText.substring(0, charIndex + 1));
+        setCharIndex((prev) => prev + 1);
+        setTypingSpeed(150);
+      }
+
+      if (!isDeleting && charIndex === currentText.length) {
+        // Pause before deleting
+        setTimeout(() => setIsDeleting(true), 500);
+      }
+
+      if (isDeleting && charIndex === 0) {
+        // Move to next role after deleting
+        setIsDeleting(false);
+        setIndex((prevIndex) => (prevIndex + 1) % roles.length);
+      }
+    }, typingSpeed); // Use the typingSpeed for the timeout duration
+
+    return () => clearTimeout(typingInterval);
+  }, [charIndex, isDeleting, index, roles, typingSpeed]);
+
 
   return (
-    <section className="min-h-screen w-full flex flex-col relative" id="home">
+    <section className="min-h-screen w-full flex flex-col relative " id="home">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl font-medium text-white text-center font-generalsans">
-          Welcome, I'm Dionis <span className="waving-hand">✋</span>
+          Welcome, I'm <span className="text-[#FFCA3D]">Dionis</span> <span className="waving-hand">✋</span>
         </p>
         <p className="hero_tag text-gray_gradient">
-          Let's Work Together
+          And I'm a <span className="text-[#FFCA3D] blinking-cursor">{currentRole}</span>
         </p>
       </div>
       <div className="w-full h-full absolute inset-0">
-         {/*<Leva />*/}
-        {/*<Canvas className="w-full h-full">
-          <Suspense fallback={<CanvasLoader />}>
-            <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-            <HeroCamera isMobile={isMobile}>
-              <HackerRoom
-                position={sizes.deskPosition}
-                rotation={[0, -Math.PI, 0]}
-                scale={sizes.deskScale}
-              />
-            </HeroCamera>
 
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} />
-          </Suspense>
-        </Canvas>*/}
-        {/*<Canvas className="w-full">
-          <ambientLight intensity={Math.PI}/>
-          <directionalLight position={[10, 10, 5]}/>
-          <Center>
-            <Suspense fallback={<CanvasLoader/>}>
-              <group scale={0.5} position={[0, -2, 0]} rotation={[0, -0.1, 0]}>
-                <Desktop/>
-              </group>
-            </Suspense>
-          </Center>
-          <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false}/>
-        </Canvas>*/}
-
-        {/*Canvas Desktop*/}
+      {/*Canvas Desktop*/}
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />

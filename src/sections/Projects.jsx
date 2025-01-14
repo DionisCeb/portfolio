@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { Suspense, useState } from 'react';
+import {Suspense, useEffect, useState} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 
@@ -12,6 +12,25 @@ const projectCount = myProjects.length;
 
 const Projects = () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+
+    //Use Effect to add the effect on scroll
+    useEffect(() => {
+        const elements = document.querySelectorAll(".slide-block");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${index * 200 + 2000}ms`; // Delay increases by 200ms for each element
+                    entry.target.classList.add("slide-in");
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.3 });
+
+        elements.forEach(element => observer.observe(element));
+
+        return () => observer.disconnect(); // Clean up observer on unmount
+    }, []);
 
     const handleNavigation = (direction) => {
         setSelectedProjectIndex((prevIndex) => {
@@ -34,7 +53,7 @@ const Projects = () => {
             <p className="head-text">My Selected Work</p>
 
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
-                <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
+                <div className="slide-block flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
                     <div className="absolute top-0 right-0">
                         <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-xl" />
                     </div>
@@ -81,7 +100,7 @@ const Projects = () => {
                     </div>*/}
                 </div>
 
-                <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
+                <div className="slide-block border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
                     <Canvas>
                         <ambientLight intensity={Math.PI} />
                         <directionalLight position={[10, 10, 5]} />
