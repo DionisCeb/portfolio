@@ -89,7 +89,7 @@ const Projects = () => {
                     </div>
 
                     {/*Slider*/}
-                   {/* <div className="flex justify-between items-center mt-7">
+                    <div className="flex justify-between items-center mt-7">
                         <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
                             <img src="/assets/left-arrow.png" alt="left arrow" />
                         </button>
@@ -97,7 +97,7 @@ const Projects = () => {
                         <button className="arrow-btn" onClick={() => handleNavigation('next')}>
                             <img src="/assets/right-arrow.png" alt="right arrow" className="w-4 h-4" />
                         </button>
-                    </div>*/}
+                    </div>
                 </div>
 
                 <div className="slide-block border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">

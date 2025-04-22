@@ -65,10 +65,10 @@ const Contact = () => {
 
     }
     return (
-        <section className="c-cpace my-20" id="contact">
+        <section className="c-cpace my-20 w-full" id="contact">
 
             <div className="relative min-h-screen flex items-center justify-center flex-col">
-                <img src="/assets/img/contact/screen.png" alt="terminal background" className="absolute inset-0 min-h-screen hidden xl2:block"/>
+                <img src="/assets/img/contact/screen.png" alt="terminal background" className="absolute inset-0 min-h-screen hidden xs1:block w-full"/>
                 <div className="contact-container">
                     <h3 className="head-text">Say Hello</h3>
                     <p className="text-lg text-white-600 mt-3">
