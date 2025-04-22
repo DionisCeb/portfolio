@@ -1,8 +1,10 @@
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import {Center, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import HackerRoom from "../components/HackerRoom";
 import CanvasLoader from "../components/CanvasLoader";
 import HeroCamera from "../components/HeroCamera.jsx";
+import PageLoader from "../components/PageLoader.jsx";
 import Button from "../components/Button.jsx";
 import {Suspense, useState, useEffect} from "react";
 import { useMediaQuery } from "react-responsive";
@@ -23,6 +25,16 @@ const Hero = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
+  const [showPageLoader, setShowPageLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPageLoader(false);
+    }, 2000); // 3 seconds
+  
+    return () => clearTimeout(timer);
+  }, []);
+  
 
   //Use effect to update the current role
   useEffect(() => {
@@ -59,6 +71,7 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen w-full flex flex-col relative " id="home">
+      {showPageLoader && <PageLoader />}
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl font-medium text-white text-center font-generalsans">
           Welcome, I'm <span className="text-[#FFCA3D]">Dionis</span> <span className="waving-hand">✋</span>

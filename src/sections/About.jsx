@@ -39,7 +39,7 @@ const About = () => {
                         <img src="/assets/img/profile/profile.jpg" alt="grid-1" className="w-full sm:h-[276px] h-fit rounded-full object-contain"/>
                         <div>
                             <p className="grid-headtext">Hi, i'm Dionis</p>
-                            <p className="grid-subtext">An ambitious web-developer graduated student, experienced in
+                            <p className="grid-subtext">An ambitious web-developer, experienced in
                                 both front and backend </p>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ const About = () => {
                              className="w-full sm:w-[276px] h-fit object-contain m-auto"/>
                         <div>
                             <p className="grid-headtext">Tech Stack</p>
-                            <p className="grid-subtext">I specialize in JS/React with a server language of PHP and React
+                            <p className="grid-subtext">I specialize in React with a server language of PHP and React
                                 Native for mobile apps</p>
                         </div>
                     </div>
