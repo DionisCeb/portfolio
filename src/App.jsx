@@ -6,6 +6,7 @@ import Contact from "./sections/Contact.jsx";
 import Footer from "./sections/Footer.jsx";
 import Desktop from "./components/Desktop.jsx";
 import DesktopSection from "./sections/DesktopSection.jsx";
+import Certifications from "./sections/Certifications.jsx";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
         <Hero />
         <About />
+        <Certifications />
         <Projects />
         <Contact />
         <Footer />
