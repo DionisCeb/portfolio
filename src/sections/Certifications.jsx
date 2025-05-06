@@ -8,6 +8,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 const certificateImages = [
+  { src: '/certificates/maisonneuve.png', alt: 'Maisonneuve Diploma' },
   { src: '/certificates/ai&machinelearning.png', alt: 'AI & Machine Learning' },
   { src: '/certificates/cybersecurity.png', alt: 'Cybersecurity' },
   { src: '/certificates/reactnative.png', alt: 'React Native' },
