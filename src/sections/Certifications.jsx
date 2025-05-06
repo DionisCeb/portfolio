@@ -1,71 +1,59 @@
-import React, { useState } from 'react'
-import Carousel from 'react-spring-3d-carousel'
-import { config } from 'react-spring'
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
 
-/* const certificateImages = [
-  '/certificates/ai&machinelearning.png',
-  '/certificates/cybersecurity.png',
-  '/certificates/reactnative.png',
-]; */
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const certificateImages = [
-    {
-      key: 1,
-      content: (
-        <img
-          src="/certificates/ai&machinelearning.png"
-          alt="AI & Machine Learning Google"
-          className="rounded-xl shadow-lg border border-gray-200 max-w-full h-auto"
-        />
-      ),
-    },
-    {
-      key: 2,
-      content: (
-        <img
-          src="/certificates/cybersecurity.png"
-          alt="Cybersecurity Certificate Google"
-          className="rounded-xl shadow-lg border border-gray-200 max-w-full h-auto"
-        />
-      ),
-    },
-    {
-      key: 3,
-      content: (
-        <img
-          src="/certificates/reactnative.png"
-          alt="React Native Meta"
-          className="rounded-xl shadow-lg border border-gray-200 max-w-full h-auto"
-        />
-      ),
-    },
-  ]
-  
-  
+  { src: '/certificates/ai&machinelearning.png', alt: 'AI & Machine Learning' },
+  { src: '/certificates/cybersecurity.png', alt: 'Cybersecurity' },
+  { src: '/certificates/reactnative.png', alt: 'React Native' },
+]
 
-  const Certifications = () => {
-    const [currentSlide, setCurrentSlide] = useState(0)
-  
-    const slides = certificateImages.map((item, index) => ({
-      ...item,
-      onClick: () => setCurrentSlide(index),
-    }))
-  
-    return (
-      <section className="w-full bg-black text-white py-20" id="certifications">
-        <h2 className="head-text"> Certifications</h2>
-  
-        <div className="w-full max-w-5xl mx-auto h-[400px]">
-          <Carousel
-            slides={slides}
-            goToSlide={currentSlide}
-            offsetRadius={1} // Shows 1 before and 1 after = 3 total
-            showNavigation
-            animationConfig={config.gentle}
-          />
-        </div>
-      </section>
-    )
-  }
+const Certifications = () => {
+  return (
+    <section className="py-20 bg-black text-white" id="certifications">
+      <h2 className="text-3xl text-center font-bold mb-10">🎓 Certifications</h2>
+
+      <div className="w-full max-w-5xl mx-auto px-4">
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          loop={true}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+            slideShadows: false,
+          }}
+          pagination={{ clickable: true }}
+          navigation
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          className="w-full"
+        >
+          {certificateImages.map((item, idx) => (
+            <SwiperSlide
+                key={idx}
+                className="w-[340px] flex justify-center items-center relative group"
+            >
+                <img
+                src={item.src}
+                alt={item.alt}
+                className="rounded-xl shadow-lg border border-gray-300 transition-opacity duration-300 group-[.swiper-slide-active]:opacity-100 opacity-70"
+                />
+            </SwiperSlide>
+            ))}
+
+        </Swiper>
+      </div>
+    </section>
+  )
+}
 
 export default Certifications
