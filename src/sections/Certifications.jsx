@@ -1,75 +1,68 @@
 import React, { useState } from 'react'
 import Carousel from 'react-spring-3d-carousel'
+import { config } from 'react-spring'
 
-const certificateImages = [
+/* const certificateImages = [
   '/certificates/ai&machinelearning.png',
   '/certificates/cybersecurity.png',
   '/certificates/reactnative.png',
-];
+]; */
 
-const Certifications = () => {
-    const [current, setCurrent] = useState(0)
+const certificateImages = [
+    {
+      key: 1,
+      content: (
+        <img
+          src="/certificates/ai&machinelearning.png"
+          alt="AI & Machine Learning Google"
+          className="rounded-xl shadow-lg border border-gray-200 max-w-full h-auto"
+        />
+      ),
+    },
+    {
+      key: 2,
+      content: (
+        <img
+          src="/certificates/cybersecurity.png"
+          alt="Cybersecurity Certificate Google"
+          className="rounded-xl shadow-lg border border-gray-200 max-w-full h-auto"
+        />
+      ),
+    },
+    {
+      key: 3,
+      content: (
+        <img
+          src="/certificates/reactnative.png"
+          alt="React Native Meta"
+          className="rounded-xl shadow-lg border border-gray-200 max-w-full h-auto"
+        />
+      ),
+    },
+  ]
   
-    const prevSlide = () => {
-      setCurrent((prev) => (prev === 0 ? certificateImages.length - 1 : prev - 1))
-    }
   
-    const nextSlide = () => {
-      setCurrent((prev) => (prev === certificateImages.length - 1 ? 0 : prev + 1))
-    }
+
+  const Certifications = () => {
+    const [currentSlide, setCurrentSlide] = useState(0)
+  
+    const slides = certificateImages.map((item, index) => ({
+      ...item,
+      onClick: () => setCurrentSlide(index),
+    }))
   
     return (
-      <section className="c-space my-20 text-center" id="work">
-        <p className="text-3xl font-bold mb-10">🎓 Certifications and Diploma</p>
+      <section className="w-full bg-black text-white py-20" id="certifications">
+        <h2 className="head-text"> Certifications</h2>
   
-        <div className="relative flex justify-center items-center">
-          {/* Left Arrow */}
-          <button onClick={prevSlide} className="absolute left-0 text-4xl px-4 z-10">
-            ‹
-          </button>
-  
-          <div className="flex gap-4 items-center overflow-hidden w-[90vw] max-w-5xl">
-            {certificateImages.map((src, index) => {
-              // Determine position relative to current
-              const offset = index - current
-  
-              // Handle wrapping logic (e.g., last before first)
-              const isPrev = (current === 0 && index === certificateImages.length - 1) || offset === -1
-              const isNext = (current === certificateImages.length - 1 && index === 0) || offset === 1
-              const isCenter = index === current
-  
-              let scale = 'scale-75'
-              let opacity = 'opacity-70'
-              let zIndex = 'z-0'
-  
-              if (isCenter) {
-                scale = 'scale-100'
-                opacity = 'opacity-100'
-                zIndex = 'z-10'
-              } else if (isPrev || isNext) {
-                scale = 'scale-90'
-                zIndex = 'z-5'
-              }
-  
-              return (
-                <div
-                  key={index}
-                  className={`transition-transform duration-500 ease-in-out transform ${scale} ${opacity} ${zIndex}`}
-                >
-                  <img
-                    src={src}
-                    alt={`Certificate ${index + 1}`}
-                    className="w-64 h-44 object-cover rounded-lg shadow-lg"
-                  />
-                </div>
-              )
-            })}
-          </div>
-  
-          {/* Right Arrow */}
-          <button onClick={nextSlide} className="absolute right-0 text-4xl px-4 z-10">
-            ›
-          </button>
+        <div className="w-full max-w-5xl mx-auto h-[400px]">
+          <Carousel
+            slides={slides}
+            goToSlide={currentSlide}
+            offsetRadius={1} // Shows 1 before and 1 after = 3 total
+            showNavigation
+            animationConfig={config.gentle}
+          />
         </div>
       </section>
     )
