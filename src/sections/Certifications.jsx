@@ -12,6 +12,7 @@ const certificateImages = [
   { src: '/certificates/ai&machinelearning.png', alt: 'AI & Machine Learning' },
   { src: '/certificates/cybersecurity.png', alt: 'Cybersecurity' },
   { src: '/certificates/reactnative.png', alt: 'React Native' },
+  { src: '/certificates/python.png', alt: 'Python' },
 ]
 
 const Certifications = () => {
