@@ -15,6 +15,7 @@ export default {
       screens: {
         'xl2': '1600px',
         'xs1' : '800px',
+        'xs' : '400px',
       },
       fontFamily: {
         generalsans: ['General Sans', 'sans-serif'],
