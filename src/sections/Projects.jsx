@@ -50,7 +50,7 @@ const Projects = () => {
 
     return (
         <section className="c-space my-20" id="work">
-            <h2 className="text-3xl text-center font-bold mb-10">💻 My Selected Work</h2>
+            <h2 className="text-3xl text-center font-bold mb-10 slide-block">💻 My Selected Work</h2>
 
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
                 <div className="slide-block flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">

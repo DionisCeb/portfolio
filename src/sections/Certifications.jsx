@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
 
@@ -16,9 +16,27 @@ const certificateImages = [
 ]
 
 const Certifications = () => {
+
+   useEffect(() => {
+        const elements = document.querySelectorAll(".slide-block");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${index * 200 + 2000}ms`; // Delay increases by 200ms for each element
+                    entry.target.classList.add("slide-in");
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.3 });
+
+        elements.forEach(element => observer.observe(element));
+
+        return () => observer.disconnect(); // Clean up observer on unmount
+    }, []);
   return (
-    <section className="py-20 bg-black text-white" id="certifications">
-      <h2 className="text-3xl text-center font-bold mb-10">🎓 Certifications</h2>
+    <section className="py-20 bg-black text-white slide-block" id="certifications">
+      <h2 className="text-3xl text-center font-bold mb-10 ">🎓 Certifications</h2>
 
       <div className="w-full max-w-5xl mx-auto px-4">
         <Swiper

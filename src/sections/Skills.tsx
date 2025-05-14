@@ -23,6 +23,7 @@ const SkillsSection = () => {
       { name: 'MySQL', level: 70 },
       { name: 'MongoDB', level: 65 },
       { name: 'Laravel', level: 85 },
+      { name: 'Python', level: 70 },
       { name: 'React Native', level: 80 },
     ];
   
