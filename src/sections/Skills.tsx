@@ -7,18 +7,23 @@ const SkillsSection = () => {
       { name: 'Figma', level: 95 },
       { name: 'Adobe XD', level: 70 },
       { name: 'Illustrator', level: 75 },
+      { name: 'CSS', level: 95 },
+      { name: 'Tailwind', level: 80 },
+      { name: 'Bootstrap ', level: 60 },
+      { name: 'Sass ', level: 70 },
     ];
   
     const devSkills = [
       { name: 'HTML', level: 100 },
-      { name: 'CSS', level: 95 },
       { name: 'JavaScript', level: 90 },
       { name: 'React', level: 85 },
       { name: 'Node.js', level: 80 },
       { name: 'Express', level: 75 },
+      { name: 'TypeScript', level: 70 },
       { name: 'MySQL', level: 70 },
       { name: 'MongoDB', level: 65 },
       { name: 'Laravel', level: 85 },
+      { name: 'React Native', level: 80 },
     ];
   
     useEffect(() => {
