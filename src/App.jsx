@@ -8,10 +8,9 @@ import Desktop from "./components/Desktop.jsx";
 import DesktopSection from "./sections/DesktopSection.jsx";
 import Certifications from "./sections/Certifications.jsx";
 import SkillsSection from "./sections/Skills.tsx";
-
+import ScrollProgressCircle from "../public/hooks/ScrollProgressCircle.tsx";
 
 function App() {
-
   return (
     <main className="max-w-7xl mx-auto">
       <Navbar />
@@ -22,6 +21,7 @@ function App() {
         <Projects />
         <Contact />
         <Footer />
+        <ScrollProgressCircle />
 
     </main>
   )
