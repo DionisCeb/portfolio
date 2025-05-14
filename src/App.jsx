@@ -7,6 +7,7 @@ import Footer from "./sections/Footer.jsx";
 import Desktop from "./components/Desktop.jsx";
 import DesktopSection from "./sections/DesktopSection.jsx";
 import Certifications from "./sections/Certifications.jsx";
+import SkillsSection from "./sections/Skills.tsx";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
         <Hero />
         <About />
+        <SkillsSection />
         <Certifications />
         <Projects />
         <Contact />
