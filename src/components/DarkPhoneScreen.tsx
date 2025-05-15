@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 
 const DarkPhoneScreen: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+    const [poweredOn, setPoweredOn] = useState(false);
     return (
       <div className="flex justify-center items-center h-screen bg-gradient-to-b px-4">
         <div className="w-[90%] xs:w-[90%] xs1:w-[40%] xl2:w-[50%] aspect-[9/19] rounded-[2rem] bg-black border-[3px] border-gray-800 shadow-2xl relative p-6 text-white">
@@ -19,7 +21,22 @@ const DarkPhoneScreen: React.FC<{ children?: React.ReactNode }> = ({ children })
   
             {/* Content Area */}
             <div className="relative z-0 h-full overflow-y-auto custom-scrollbar">
-                {children}
+                {!poweredOn ? (
+                <div className="flex flex-col items-center justify-center h-full space-y-6">
+                <span className="text-gray-500 text-center">Press Power to Light The Screen</span>
+                <button
+                    className="bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-600 transition"
+                    onClick={() => setPoweredOn(true)}
+                >
+                    🔋 Power On
+                </button>
+                </div>
+            ) : (
+
+                <div className="animate-fadeIn">
+                    {children}
+                </div>
+            )}
             </div>
         </div>
       </div>
