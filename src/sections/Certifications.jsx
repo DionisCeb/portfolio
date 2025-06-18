@@ -9,10 +9,11 @@ import 'swiper/css/pagination'
 
 const certificateImages = [
   { src: '/certificates/maisonneuve.png', alt: 'Maisonneuve Diploma' },
-  { src: '/certificates/ai&machinelearning.png', alt: 'AI & Machine Learning' },
-  { src: '/certificates/cybersecurity.png', alt: 'Cybersecurity' },
-  { src: '/certificates/reactnative.png', alt: 'React Native' },
-  { src: '/certificates/python.png', alt: 'Python' },
+  { src: '/certificates/python_webdev.png', alt: 'Python Web Development Certificate' },
+  { src: '/certificates/ai&machinelearning.png', alt: 'AI & Machine Learning Certificate' },
+  { src: '/certificates/cybersecurity.png', alt: 'Cybersecurity Certificate' },
+  { src: '/certificates/reactnative.png', alt: 'React Native Certificate' },
+  { src: '/certificates/python.png', alt: 'Python Certificate' },
 ]
 
 const Certifications = () => {
