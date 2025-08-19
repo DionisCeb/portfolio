@@ -10,6 +10,7 @@ import Certifications from "./sections/Certifications.jsx";
 import SkillsSection from "./sections/Skills.tsx";
 import ScrollProgressCircle from "../public/hooks/ScrollProgressCircle.tsx";
 import WebcraftPromo from "./sections/WebCraftPromo.jsx";
+import AISolutionsPromo from "./sections/AISolutionsPromo.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Hero />
         <About />
         <SkillsSection />
+        <AISolutionsPromo />
         <Certifications />
         <Projects />
         <WebcraftPromo />
