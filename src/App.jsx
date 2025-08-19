@@ -9,6 +9,7 @@ import DesktopSection from "./sections/DesktopSection.jsx";
 import Certifications from "./sections/Certifications.jsx";
 import SkillsSection from "./sections/Skills.tsx";
 import ScrollProgressCircle from "../public/hooks/ScrollProgressCircle.tsx";
+import WebcraftPromo from "./sections/WebCraftPromo.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <SkillsSection />
         <Certifications />
         <Projects />
+        <WebcraftPromo />
         <Contact />
         <Footer />
         <ScrollProgressCircle />
