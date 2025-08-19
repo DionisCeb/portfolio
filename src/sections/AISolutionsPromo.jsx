@@ -22,7 +22,7 @@ export default function AISolutionsPromo() {
       }, []);
   
   return (
-    <section className="relative py-20 px-6 flex justify-center items-center">
+    <section className="relative py-20 px-6 flex justify-center items-center" id="ai-solutions">
       {/* Neon gradient ring */}
       <div className="absolute inset-0 blur-3xl opacity-20 pointer-events-none"
            style={{ background: "radial-gradient(50% 50% at 50% 50%, #7c3aed 0%, rgba(124,58,237,0) 60%), radial-gradient(40% 40% at 80% 20%, #2563eb 0%, rgba(37,99,235,0) 60%)" }} />

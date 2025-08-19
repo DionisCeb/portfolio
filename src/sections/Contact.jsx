@@ -66,6 +66,9 @@ const Contact = () => {
     }
     return (
         <section className="my-20 w-full pt-[100px] pb-[100px]" id="contact">
+            <h2 className="text-4xl text-center font-extrabold mb-6">
+                <span>📱</span> Contact Me
+            </h2>
 
             <DarkPhoneScreen>
                 <div className=" min-h-screen flex items-center justify-center flex-col">

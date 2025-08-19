@@ -16,16 +16,21 @@ export const navLinks = [
     },
     {
         id: 4,
+        name: 'AI',
+        href: '#ai-solutions',
+    },
+    {
+        id: 5,
         name: 'Studies',
         href: '#certifications',
     },
     {
-        id: 5,
+        id: 6,
         name: 'Work',
         href: '#work',
     },
     {
-        id: 6,
+        id: 7,
         name: 'Contact',
         href: '#contact',
     },
