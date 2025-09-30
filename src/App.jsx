@@ -12,18 +12,27 @@ import ScrollProgressCircle from "../public/hooks/ScrollProgressCircle.tsx";
 import WebcraftPromo from "./sections/WebCraftPromo.jsx";
 import AISolutionsPromo from "./sections/AISolutionsPromo.jsx";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
-  /* const location = useLocation();
+  const { hash } = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
-      const element = document.getElementById(location.hash.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+    if (!hash) return;
+
+    // If you’re using HashRouter, ignore hashes that are actually routes like "#/about"
+    if (hash.startsWith("#/")) return;
+
+    const id = decodeURIComponent(hash.slice(1));
+
+    // Wait a tick so children are mounted before scrolling
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    }
-  }, [location]); */
+    });
+  }, [hash]);
 
   return (
     <main className="max-w-7xl mx-auto">
@@ -37,7 +46,7 @@ function App() {
         <WebcraftPromo />
         <Contact />
         <Footer />
-        <ScrollProgressCircle />
+        {/* <ScrollProgressCircle /> */}
 
     </main>
   )
