@@ -11,8 +11,20 @@ import SkillsSection from "./sections/Skills.tsx";
 import ScrollProgressCircle from "../public/hooks/ScrollProgressCircle.tsx";
 import WebcraftPromo from "./sections/WebCraftPromo.jsx";
 import AISolutionsPromo from "./sections/AISolutionsPromo.jsx";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  /* const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]); */
+
   return (
     <main className="max-w-7xl mx-auto">
       <Navbar />
