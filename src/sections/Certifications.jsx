@@ -10,6 +10,7 @@ import 'swiper/css/pagination'
 const certificateImages = [
   { src: '/certificates/maisonneuve.png', alt: 'Maisonneuve Diploma' },
   { src: '/certificates/ibm_machinelearning.png', alt: 'IBM Machine Learning Certificate' },
+  { src: '/certificates/system-admin-google.png', alt: 'System Administration Google Certificate' },
   { src: '/certificates/ci&cd.png', alt: 'CI & CD Certificate' },
   { src: '/certificates/python_webdev.png', alt: 'Python Web Development Certificate' },
   { src: '/certificates/ai&machinelearning.png', alt: 'AI & Machine Learning Certificate' },
